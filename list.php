@@ -23,6 +23,6 @@ while ($res = $results->fetchArray()) {
 // Ask TBS to display data
 //
 $TBS = new clsTinyButStrong;
-$TBS->LoadTemplate('tpl_ipn.html');
+$TBS->LoadTemplate('tpl/tpl_ipn.html');
 $TBS->MergeBlock('list',$data);
 $TBS->Show();
