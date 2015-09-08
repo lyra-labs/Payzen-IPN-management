@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Test</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+   $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+   });
+  </script>
+  <style type="text/css">
+    .bs-example{  margin: 20px; }
+    .popover{ max-width:600px; }
+  </style>
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">PayzenDemonstrator</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">IPN</a></li>
+        <li><a href="#">X</a></li>
+        <li><a href="#">X</a></li>
+        <li><a href="#">X</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/#/demo"><span class="glyphicon glyphicon-log-in"></span> exemples</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<h1>IPN records</h1>
+
+<div class="bs-example">
+    <p class="moreinfo">[list.#] displayed lines</p>
+ <div class="table-responsive">
+
+    <table class="table table-hover">
+     <thead>
+      <tr>
+        <td><strong>Sign</strong></td>
+        <td><strong>Site_Id</strong></td>
+        <td><strong>Shop_Name</strong></td>
+        <td><strong>Detail</strong></td>
+        <td><strong>UUID</strong></td>
+        <td><strong>Mode</strong></td>
+        <td><strong>OrderId</strong></td>
+        <td><strong>CreationDate</strong></td>
+        <td><strong>Type</strong></td>
+        <td><strong>Status</strong></td>
+        <td><strong>Amount</strong></td>
+        <td><strong>Currency</strong></td>
+        <td><strong>Mode</strong></td>
+        <td><strong>Brand</strong></td>
+        <td><strong>Card</strong></td>
+        <td><strong>Mail</strong></td>
+      </tr>
+     </thead>
+     <tbody>
+      <tr>
+        <td>[list.checked]</td>
+        <td>[list.vads_site_id]</td>
+        <td>[list.vads_shop_name;block=tr]</td>
+        <td>
+           <a href="#" tabindex="10[list.#]" class="btn-sm btn-primary" data-trigger="focus" data-placement="right" data-toggle="popover" data-html="true" title="All parameters" data-content="[list.full]">Details</a>
+        </td>
+        <td>[list.vads_trans_uuid]</td>
+        <td>[list.vads_ctx_mode]</td>
+        <td>[list.vads_order_id]</td>
+        <td>[list.vads_effective_creation_date;frm='mm-dd-yy hh:mm:ss']</td>
+        <td>[list.vads_operation_type]</td>
+        <td>[list.vads_trans_status]</td>
+        <td align="right">[list.vads_effective_amount]</td>
+        <td align="right">[list.vads_currency]</td>
+        <td align="center">[list.vads_auth_mode]</td>
+        <td>
+         <div>
+          <a href="#" tabindex="20[list.#]" class="btn-sm btn-primary" data-trigger="focus" data-placement="left" data-toggle="popover" data-html="true" title="Cads details" data-content="[list.vads_payment_seq]">[list.vads_card_brand;magnet=div;ope=mok:MULTI][list.vads_card_brand]</a>
+         </div>
+         <div>
+          [list.vads_card_brand;magnet=div;ope=mko:MULTI][list.vads_card_brand]
+         </div>
+
+        </td>
+        <td>[list.vads_card_number]</td>
+        <td>[list.vads_cust_email]</td>
+      </tr>
+     </tbody>
+    </table>
+
+ </div>
+</div>
+</body>
+</html>
