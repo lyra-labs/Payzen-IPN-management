@@ -33,6 +33,18 @@
         <li><a href="#">X</a></li>
         <li><a href="#">X</a></li>
       </ul>
+      <form role="search" class="navbar-form navbar-left" method="get">
+        <div class="form-group">
+          <input type="text" name="siteId" placeholder="[onshow.siteId;noerr;ifempty=Site_Id]" class="form-control">
+        </div>
+      </form>
+
+      <form role="search" class="navbar-form navbar-left" method="get">
+        <div class="form-group">
+          <input type="text" name="search" placeholder="[onshow.search;noerr;ifempty='trans_Id uuid OrdeId']" class="form-control">
+        </div>
+      </form>
+
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/#/demo"><span class="glyphicon glyphicon-log-in"></span> exemples</a></li>
       </ul>
@@ -96,6 +108,9 @@
         </td>
         <td>[list.vads_card_number]</td>
         <td>[list.vads_cust_email]</td>
+      </tr>
+      <tr>
+         <td colspan="16">[list;block=tr;nodata]There is no data.</td>
       </tr>
      </tbody>
     </table>
