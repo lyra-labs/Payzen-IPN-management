@@ -3,6 +3,7 @@
 // Instantiate Class
 //
 include_once('classes/tbs_class.php');
+$data = array();
 
 // Filters
 //
