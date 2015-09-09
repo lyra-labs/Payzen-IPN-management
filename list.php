@@ -18,7 +18,7 @@ if (!empty($siteId)) {
 }
 if (!empty($search)) {
   if (!empty($where)) $where .= ' AND ';
-  $where .= "( vads_cust_email = '$search' OR vads_trans_uuid = '$search' OR vads_order_id = '$search' )";
+  $where .= "( vads_cust_email = '$search' OR vads_trans_uuid = '$search' OR vads_order_id LIKE '$search' )";
 }
 if (!empty($where)) $where = " WHERE $where ";
 
