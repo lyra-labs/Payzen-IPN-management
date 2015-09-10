@@ -1,15 +1,20 @@
 <?php
 //header("Content-Type: text/plain");
 
+// Instantiate Class and variables
+//
+include_once('classes/classes.inc.php');
+
 // Initialise var
 //
 $arg       = (empty($_POST)) ? NULL : $_POST;
 $siteId    = (isset($_POST["vads_site_id"])) ? $_POST["vads_site_id"] : NULL;
 $signature = (isset($_POST["signature"])) ? $_POST["signature"] : NULL;
 
-// If vads_site_id doesn't exist die
+// If vads_site_id or databale doesn't exist die 
 //
 if (empty($siteId)) die("IPN triggered without valid Data");
+if (!file_exists(DATABASE_FILE)) die("run InitScript");
 
 // Get key prom parameters and validate signature
 //
@@ -35,7 +40,7 @@ $checked   = ($hash == $signature) ? 'true' : 'false';
 
 // Database instanciation
 //
-$db = new SQLite3('database/payzen.sqlite');
+$db = new SQLite3(DATABASE_FILE);
 
 #$db->exec('DROP TABLE ipn');
 #$db->exec("CREATE TABLE ipn (id INTEGER PRIMARY KEY AUTOINCREMENT, ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP, status STRING, vads_site_id STRING, vads_shop_name STRING, vads_ctx_mode STRING, vads_trans_uuid STRING, vads_order_id STRING, vads_effective_creation_date DATETIME, vads_operation_type STRING, vads_trans_status STRING, vads_effective_amount STRING, vads_currency STRING, vads_auth_mode STRING, vads_card_brand STRING, vads_card_number STRING, vads_cust_email STRING, vads_payment_seq BLOB, full BLOB, signature STRING, checked STRING)");

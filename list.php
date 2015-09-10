@@ -1,9 +1,15 @@
 <?php
 //
-// Instantiate Class
+// Instantiate Class and variables
 //
+include_once('classes/classes.inc.php');
 include_once('classes/tbs_class.php');
 $data = array();
+
+// database
+//
+if (!file_exists(DATABASE_FILE)) die("run InitScript"); 
+$db   = new SQLite3(DATABASE_FILE);
 
 // Filters
 //
@@ -25,7 +31,6 @@ if (!empty($where)) $where = " WHERE $where ";
 
 // Grep data from database
 //
-$db   = new SQLite3("./database/payzen.sqlite");
 $results = $db->query("SELECT * FROM ipn $where");
 
 
