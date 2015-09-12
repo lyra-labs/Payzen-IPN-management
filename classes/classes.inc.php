@@ -7,7 +7,8 @@
 //
 
 define("DATABASE_FILE", "./database/payzen.sqlite");
-
+define("PROJECT_NAME", "IPN");
+define("PROJECT_LICENSE", "The MIT License (MIT)");
 
 // Create the IPN table 
 //
