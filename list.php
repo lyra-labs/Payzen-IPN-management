@@ -31,7 +31,7 @@ if (!empty($where)) $where = " WHERE $where ";
 
 // Grep data from database
 //
-$results = $db->query("SELECT * FROM ipn $where");
+$results = $db->query("SELECT * FROM ipn $where ORDER by ts DESC");
 
 
 
