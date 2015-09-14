@@ -45,8 +45,8 @@ function create_ipn_table() {
 
 // TBS
 //
-function zemail($FieldName, &$CurrVal) {
-  $CurrVal= substr($CurrVal, 0, strpos($CurrVal, '@')) . '@example.com'; 
+function zemail($FieldName, &$CurrVal, &$CurrPrm) {
+  $CurrVal= substr($CurrVal, 0, strpos($CurrVal, '@')) . '@' . $CurrPrm['domaine'];
 }
 
 
