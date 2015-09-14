@@ -43,6 +43,11 @@ function create_ipn_table() {
   echo DATABASE_FILE." created<br />";
 }
 
+// TBS
+//
+function zemail($FieldName, &$CurrVal) {
+  $CurrVal= substr($CurrVal, 0, strpos($CurrVal, '@')) . '@example.com'; 
+}
 
 
 
