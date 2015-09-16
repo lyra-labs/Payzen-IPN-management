@@ -39,11 +39,13 @@ function create_ipn_table() {
     vads_contract_used STRING, 
     vads_auth_mode STRING, 
     vads_card_brand STRING, 
-    vads_card_number STRING, 
+    vads_card_number STRING,
+    vads_payment_seq BLOB, 
+ 
     vads_cust_email STRING, 
 
     vads_capture_delay STRING,
-    vads_presentation_date STRING,
+    vads_presentation_date DATETIME,
     vads_warranty_result STRING,
     vads_risk_control STRING,
 
@@ -55,15 +57,13 @@ function create_ipn_table() {
 
     vads_subscription STRING,
     vads_sub_desc STRING,
-    vads_sub_effect_date STRING,
+    vads_sub_effect_date DATE,
     vads_sub_currency STRING,
     vads_sub_amount STRING,
     vads_sub_init_amount_number STRING,
     vads_sub_init_amount STRING,
 
     vads_contrib STRING,
-
-    vads_payment_seq BLOB, 
 
     vads_ext_info_donation STRING,
     vads_ext_info_donation_recipient STRING,
