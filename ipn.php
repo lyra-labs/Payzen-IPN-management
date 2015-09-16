@@ -42,12 +42,62 @@ $checked   = ($hash == $signature) ? 'true' : 'false';
 //
 $db = new SQLite3(DATABASE_FILE);
 
-#$db->exec('DROP TABLE ipn');
-#$db->exec("CREATE TABLE ipn (id INTEGER PRIMARY KEY AUTOINCREMENT, ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP, status STRING, vads_site_id STRING, vads_shop_name STRING, vads_url_check_src STRING, vads_ctx_mode STRING, vads_trans_uuid STRING, vads_order_id STRING, vads_effective_creation_date DATETIME, vads_operation_type STRING, vads_trans_status STRING, vads_effective_amount STRING, vads_currency STRING, vads_auth_mode STRING, vads_card_brand STRING, vads_card_number STRING, vads_cust_email STRING, vads_payment_seq BLOB, full BLOB, signature STRING, checked STRING)");
-
 // Insert data
 //
-$db->exec("INSERT INTO ipn (status, vads_site_id, vads_shop_name, vads_url_check_src, vads_ctx_mode, vads_trans_uuid, vads_order_id, vads_effective_creation_date, vads_operation_type, vads_trans_status, vads_effective_amount, vads_currency, vads_auth_mode, vads_card_brand, vads_card_number, vads_cust_email, vads_payment_seq, full, signature, checked) VALUES ('NEW','".$arg['vads_site_id']."', '".$arg['vads_shop_name']."', '".$arg['vads_url_check_src']."', '".$arg['vads_ctx_mode']."', '".$arg['vads_trans_uuid']."', '".$arg['vads_order_id']."', '".$arg['vads_effective_creation_date']."', '".$arg['vads_operation_type']."', '".$arg['vads_trans_status']."', '".$arg['vads_effective_amount']."', '".$arg['vads_currency']."', '".$arg['vads_auth_mode']."', '".$arg['vads_card_brand']."', '".$arg['vads_card_number']."', '".$arg['vads_cust_email']."', '".$arg['vads_payment_seq']."', '".json_encode($arg)."', '".$arg['signature']."', '".$checked."')");
+$db->exec("
+  INSERT INTO ipn (status, vads_site_id, vads_url_check_src, vads_payment_src, vads_shop_name, vads_ctx_mode, vads_trans_uuid, vads_order_id, vads_order_info, vads_payment_config, vads_effective_creation_date, vads_operation_type, vads_trans_status, vads_result, vads_extra_result, vads_effective_amount, vads_currency, vads_contract_used, vads_auth_mode, vads_card_brand, vads_card_number, vads_payment_seq, vads_cust_email, vads_capture_delay, vads_presentation_date, vads_warranty_result, vads_risk_control, vads_validation_mode, vads_recurrence_status, vads_identifier_status, vads_identifier, vads_subscription, vads_sub_desc, vads_sub_effect_date, vads_sub_currency, vads_sub_amount, vads_sub_init_amount_number, vads_sub_init_amount, vads_contrib, vads_ext_info_donation, vads_ext_info_donation_recipient, vads_ext_info_donation_recipient_name, vads_ext_info_donation_merchant, full, signature, checked)
+
+  VALUES (
+    'NEW', '"
+    .$arg['vads_site_id']."', '"
+    .$arg['vads_url_check_src']."', '"
+    .$arg['vads_payment_src']."', '"
+    .$arg['vads_shop_name']."', '"
+    .$arg['vads_ctx_mode']."', '"
+    .$arg['vads_trans_uuid']."', '"
+    .$arg['vads_order_id']."', '"
+    .$arg['vads_order_info']."', '"
+    .$arg['vads_payment_config']."', '"
+    .$arg['vads_effective_creation_date']."', '"
+    .$arg['vads_operation_type']."', '"
+    .$arg['vads_trans_status']."', '"
+    .$arg['vads_result']."', '"
+    .$arg['vads_extra_result']."', '"
+    .$arg['vads_effective_amount']."', '"
+    .$arg['vads_currency']."', '"
+    .$arg['vads_contract_used']."', '"
+    .$arg['vads_auth_mode']."', '"
+    .$arg['vads_card_brand']."', '"
+    .$arg['vads_card_number']."', '"
+    .$arg['vads_payment_seq']."', '"
+    .$arg['vads_cust_email']."', '"
+
+    .$arg['vads_capture_delay']."', '"
+    .$arg['vads_presentation_date']."', '"
+    .$arg['vads_warranty_result']."', '"
+    .$arg['vads_risk_control']."', '"
+    .$arg['vads_validation_mode']."', '"
+    .$arg['vads_recurrence_status']."', '"
+    .$arg['vads_identifier_status']."', '"
+    .$arg['vads_identifier']."', '"
+    .$arg['vads_subscription']."', '"
+    .$arg['vads_sub_desc']."', '"
+    .$arg['vads_sub_effect_date']."', '"
+    .$arg['vads_sub_currency']."', '"
+    .$arg['vads_sub_amount']."', '"
+    .$arg['vads_sub_init_amount_number']."', '"
+    .$arg['vads_sub_init_amount']."', '"
+    .$arg['vads_contrib']."', '"
+    .$arg['vads_ext_info_donation']."', '"
+    .$arg['vads_ext_info_donation_recipient']."', '"
+    .$arg['vads_ext_info_donation_recipient_name']."', '"
+    .$arg['vads_ext_info_donation_merchant']."', '"
+
+
+    .json_encode($arg)."', '"
+    .$arg['signature']."', '"
+    .$checked
+    ."')");
 
 // Error & Timeout managment
 //
