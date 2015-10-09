@@ -1,0 +1,7 @@
+## Ignore files
+# main file
+index.html
+# Config & Database files
+config/key.ini
+database/*.sqlite
+# End
