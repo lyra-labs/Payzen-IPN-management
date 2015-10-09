@@ -1,0 +1,8 @@
+ # do not respond for git files
+RedirectMatch 404 /\.git
+
+# do not gave acces to special files 
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|inc|bak|sqlite)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
