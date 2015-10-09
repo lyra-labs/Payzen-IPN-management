@@ -1,1 +1,1 @@
-Consider to protect he files of this directory
+this directory will hold the IPN database
