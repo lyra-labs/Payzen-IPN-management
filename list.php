@@ -15,6 +15,7 @@ $db   = new SQLite3(DATABASE_FILE);
 //
 $siteId   = (!empty($_GET["siteId"])) ? $_GET["siteId"] : NULL;
 $search   = (!empty($_GET["search"])) ? $_GET["search"] : NULL;
+$cards    = (!empty($_GET["cards"]))  ? $_GET["cards"] : NULL;
 
 // Build condition 
 //
@@ -25,6 +26,10 @@ if (!empty($siteId)) {
 if (!empty($search)) {
   if (!empty($where)) $where .= ' AND ';
   $where .= "( vads_cust_email = '$search' OR vads_trans_uuid = '$search' OR vads_order_id LIKE '$search' )";
+}
+if (!empty($cards)) {
+  if (!empty($where)) $where .= ' AND ';
+  $where .= " vads_card_brand = '$cards'";
 }
 if (!empty($where)) $where = " WHERE $where ";
 
