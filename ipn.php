@@ -45,7 +45,7 @@ $db = new SQLite3(DATABASE_FILE);
 // Insert data
 //
 $db->exec("
-  INSERT INTO ipn (status, vads_site_id, vads_url_check_src, vads_payment_src, vads_shop_name, vads_ctx_mode, vads_trans_uuid, vads_order_id, vads_order_info, vads_payment_config, vads_effective_creation_date, vads_operation_type, vads_trans_status, vads_result, vads_extra_result, vads_effective_amount, vads_currency, vads_contract_used, vads_auth_mode, vads_card_brand, vads_card_number, vads_payment_seq, vads_cust_email, vads_capture_delay, vads_presentation_date, vads_warranty_result, vads_risk_control, vads_validation_mode, vads_recurrence_status, vads_identifier_status, vads_identifier, vads_subscription, vads_sub_desc, vads_sub_effect_date, vads_sub_currency, vads_sub_amount, vads_sub_init_amount_number, vads_sub_init_amount, vads_contrib, vads_ext_info_donation, vads_ext_info_donation_recipient, vads_ext_info_donation_recipient_name, vads_ext_info_donation_merchant, full, signature, checked)
+  INSERT INTO ipn (status, vads_site_id, vads_url_check_src, vads_payment_src, vads_shop_name, vads_ctx_mode, vads_trans_uuid, vads_trans_id, vads_order_id, vads_order_info, vads_payment_config, vads_effective_creation_date, vads_operation_type, vads_trans_status, vads_result, vads_extra_result, vads_effective_amount, vads_currency, vads_contract_used, vads_auth_mode, vads_card_brand, vads_card_number, vads_payment_seq, vads_cust_email, vads_capture_delay, vads_presentation_date, vads_warranty_result, vads_risk_control, vads_validation_mode, vads_recurrence_status, vads_identifier_status, vads_identifier, vads_subscription, vads_sub_desc, vads_sub_effect_date, vads_sub_currency, vads_sub_amount, vads_sub_init_amount_number, vads_sub_init_amount, vads_contrib, vads_ext_info_donation, vads_ext_info_donation_recipient, vads_ext_info_donation_recipient_name, vads_ext_info_donation_merchant, full, signature, checked)
 
   VALUES (
     'NEW', '"
@@ -55,6 +55,7 @@ $db->exec("
     .$arg['vads_shop_name']."', '"
     .$arg['vads_ctx_mode']."', '"
     .$arg['vads_trans_uuid']."', '"
+    .$arg['vads_trans_id']."', '"
     .$arg['vads_order_id']."', '"
     .$arg['vads_order_info']."', '"
     .$arg['vads_payment_config']."', '"
