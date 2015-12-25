@@ -9,23 +9,20 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script type="text/javascript">
+    $(function () {
+      $('[data-toggle="popover"]').popover()
 
-$(function () {
-  $('[data-toggle="popover"]').popover()
-
-  $('body').on('click', function (e) {
-    $('[data-toggle="popover"]').each(function () {
-        //the 'is' for buttons that trigger popups
-        //the 'has' for icons within a button that triggers a popup
-        if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+      $('body').on('click', function (e) {
+        $('[data-toggle="popover"]').each(function () {
+          //the 'is' for buttons that trigger popups
+          //the 'has' for icons within a button that triggers a popup
+          if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
             $(this).popover('hide');
-        }
-    });
-  });
+          }
+        });
+      });
 
-})
-
-
+    })
   </script>
   <style type="text/css">
     .bs-example{  margin: 20px; }
@@ -76,10 +73,11 @@ $(function () {
         <td>[list.vads_url_check_src]</td>
         <td>
            <button type="button" class="btn-sm btn-primary" data-container="body" data-toggle="popover" data-placement="right" data-content="[list.full]" data-original-title="All parameters" title="All parameters"  data-html="true">Details</button> 
-
-
         </td>
-        <td>[list.vads_trans_uuid]</td>
+        <td><small>
+           [list.vads_trans_uuid]<br/>
+           [list.vads_trans_id]i</small>
+        </td>
         <td>[list.vads_ctx_mode]</td>
         <td>[list.vads_order_id]</td>
         <td>[list.vads_effective_creation_date;frm='mm-dd-yy hh:mm:ss']</td>
