@@ -25,6 +25,7 @@ function create_ipn_table() {
     vads_shop_name STRING, 
     vads_ctx_mode STRING, 
     vads_trans_uuid STRING, 
+    vads_trans_id STRING, 
     vads_order_id STRING,
     vads_order_info STRING,
     vads_payment_config STRING, 
