@@ -46,23 +46,42 @@
     <table class="table table-hover">
      <thead>
       <tr>
+       <form role="search" class="form-inline" method="get">
         <td><strong>Sign</strong></td>
-        <td><strong>Site_Id</strong></td>
+        <td>
+          <input type="text" name="siteId" value="[onshow.siteId;noerr;]" placeholder="Site_Id" class="form-control input-sm">
+        </td>
         <td><strong>Shop_Name</strong></td>
         <td><strong>Source</strong></td>
         <td><strong>Detail</strong></td>
-        <td><strong>UUID</strong></td>
+        <td>
+          <input type="text" name="uuid" value="[onshow.uuid;noerr;]" placeholder="uuid" class="form-control input-sm">
+        </td>
         <td><strong>Mode</strong></td>
-        <td><strong>OrderId</strong></td>
+        <td>
+          <input type="text" name="orderId" value="[onshow.orderId;noerr;]" placeholder="OrderId" class="form-control input-sm">
+        </td>
         <td><strong>CreationDate</strong></td>
         <td><strong>Type</strong></td>
         <td><strong>Status</strong></td>
         <td><strong>Amount</strong></td>
         <td><strong>Currency</strong></td>
         <td><strong>Mode</strong></td>
-        <td><strong>Brand</strong></td>
+        <td>
+          <select name="cards" class="form-control input-sm">
+            <option value="">Brand</option>           
+            <option value="[cardlst.vads_card_brand]">[cardlst.vads_card_brand;block=option]</option>
+            <option>[onshow.cards;ope=html;select;noerr]</option> 
+          </select>
+        </td>
         <td><strong>Card</strong></td>
-        <td><strong>Mail</strong></td>
+        <td>
+          <input type="text" name="email" value="[onshow.email;noerr;]" placeholder="eMail" class="form-control input-sm">
+        </td>
+        <td>
+          <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+        </td>
+       </form>
       </tr>
      </thead>
      <tbody>
@@ -76,7 +95,7 @@
         </td>
         <td><small>
            [list.vads_trans_uuid]<br/>
-           [list.vads_trans_id]i</small>
+           [list.vads_trans_id]</small>
         </td>
         <td>[list.vads_ctx_mode]</td>
         <td>[list.vads_order_id]</td>
@@ -101,6 +120,7 @@
       <tr>
          <td colspan="16">[list;block=tr;nodata]There is no data.</td>
       </tr>
+      <tr>&nbsp;</tr>
      </tbody>
     </table>
 
