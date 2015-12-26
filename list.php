@@ -4,6 +4,8 @@
 //
 include_once('classes/classes.inc.php');
 include_once('classes/tbs_class.php');
+include_once('classes/tbs_plugin_html.php'); // Plug-in for selecting HTML items.
+
 $data = array();
 
 // database
@@ -13,9 +15,11 @@ $db   = new SQLite3(DATABASE_FILE);
 
 // Filters
 //
-$siteId   = (!empty($_GET["siteId"])) ? $_GET["siteId"] : NULL;
-$search   = (!empty($_GET["search"])) ? $_GET["search"] : NULL;
-$cards    = (!empty($_GET["cards"]))  ? $_GET["cards"] : NULL;
+$siteId   = (!empty($_GET["siteId"]))  ? $_GET["siteId"] : NULL;
+$orderId  = (!empty($_GET["orderId"])) ? $_GET["orderId"] : NULL;
+$uuid     = (!empty($_GET["uuid"]))    ? $_GET["uuid"] : NULL;
+$email    = (!empty($_GET["email"]))   ? $_GET["email"] : NULL;
+$cards    = (!empty($_GET["cards"]))   ? $_GET["cards"] : NULL;
 
 // Build condition 
 //
@@ -23,15 +27,33 @@ $where='';
 if (!empty($siteId)) {
   $where .= " vads_site_id = '$siteId'";
 }
-if (!empty($search)) {
+if (!empty($orderId)) {
   if (!empty($where)) $where .= ' AND ';
-  $where .= "( vads_cust_email = '$search' OR vads_trans_uuid = '$search' OR vads_order_id LIKE '$search' )";
+  $where .= " vads_order_id LIKE '$orderId' ";
+}
+if (!empty($uuid)) {
+  if (!empty($where)) $where .= ' AND ';
+  if (strlen($uuid) == 6) $where .= "vads_trans_id = '$uuid' ";
+   else $where .= "vads_trans_uuid = '$uuid' ";
+}
+if (!empty($email)) {
+  if (!empty($where)) $where .= ' AND ';
+  $where .= " vads_cust_email like '$email'";
 }
 if (!empty($cards)) {
   if (!empty($where)) $where .= ' AND ';
   $where .= " vads_card_brand = '$cards'";
 }
 if (!empty($where)) $where = " WHERE $where ";
+
+// prepare seclect
+//
+
+$resc = $db->query("select DISTINCT vads_card_brand FROM ipn WHERE vads_card_brand <> ''ORDER BY vads_card_brand");
+
+while ($rescards = $resc->fetchArray()) {
+  $cardlst[] = $rescards;
+}
 
 
 // Grep data from database
@@ -58,5 +80,6 @@ while ($res = $results->fetchArray()) {
 //
 $TBS = new clsTinyButStrong;
 $TBS->LoadTemplate('tpl/tpl_ipn.html');
+$TBS->MergeBlock('cardlst',$cardlst);
 $TBS->MergeBlock('list',$data);
 $TBS->Show();
