@@ -5,6 +5,8 @@
 include_once('classes/classes.inc.php');
 include_once('classes/tbs_class.php');
 include_once('classes/tbs_plugin_html.php'); // Plug-in for selecting HTML items.
+include_once('classes/tbs_plugin_bypage.php'); // Plug-in for selecting HTML items.
+include_once('classes/tbs_plugin_navbar.php'); // Plug-in for selecting HTML items.
 
 $data = array();
 
@@ -20,6 +22,11 @@ $orderId  = (!empty($_GET["orderId"])) ? $_GET["orderId"] : NULL;
 $uuid     = (!empty($_GET["uuid"]))    ? $_GET["uuid"] : NULL;
 $email    = (!empty($_GET["email"]))   ? $_GET["email"] : NULL;
 $cards    = (!empty($_GET["cards"]))   ? $_GET["cards"] : NULL;
+
+// Pagination 
+$pageNum  = (!empty($_GET["pageNum"])) ? $_GET["pageNum"] : 1;
+$recCnt   = (!empty($_GET["recCnt"]))  ? intval($_GET["recCnt"]) : -1;
+$pageSize = 16;
 
 // Build condition 
 //
@@ -81,5 +88,15 @@ while ($res = $results->fetchArray()) {
 $TBS = new clsTinyButStrong;
 $TBS->LoadTemplate('tpl/tpl_ipn.html');
 $TBS->MergeBlock('cardlst',$cardlst);
-$TBS->MergeBlock('list',$data);
+
+#$TBS->MergeBlock('list',$data);
+
+// Merge ByPage block
+$TBS->PlugIn(TBS_BYPAGE,$pageSize,$pageNum,$recCnt);
+$recCnt = $TBS->MergeBlock('list',$data);
+
+// Merge  NavBar
+$TBS->PlugIn(TBS_NAVBAR,'nv','',$pageNum,$recCnt,$pageSize);
+
+
 $TBS->Show();
