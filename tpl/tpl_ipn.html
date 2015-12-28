@@ -45,17 +45,25 @@
   <nav>
     <ul class="pagination">
       <li>
-        <a href="[onshow..script_name]?pageNum=[nv.first;endpoint;magnet=a;mtype=m+m][onshow.other_prms;noerr]" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
+        <a href="[onshow..script_name]?pageNum=[nv.first;endpoint;magnet=a;mtype=m+m][onshow.other_prms;noerr]" aria-label="First">
+          <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
         </a>
       </li>
-      <li><a href="[onshow..script_name]?pageNum=[nv.prev;endpoint;magnet=a;mtype=m+m][onshow.other_prms;noerr]">&lt;</a></li>
+      <li>
+        <a href="[onshow..script_name]?pageNum=[nv.prev;endpoint;magnet=a;mtype=m+m][onshow.other_prms;noerr]" aria-label="Previous">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        </a>
+      </li>
       <li><a href="[onshow..script_name]?pageNum=[nv.page;block=li;navsize=3;navpos=centred][onshow.other_prms;noerr]">[nv.page]</a></li>
       <li class="active"><a hret="#">[nv.page;block=li;currpage]</a></li> 
-      <li><a href="[onshow..script_name]?pageNum=[nv.next;endpoint;magnet=a;mtype=m+m][onshow.other_prms;noerr]">&gt;</a></li>
+      <li>
+        <a href="[onshow..script_name]?pageNum=[nv.next;endpoint;magnet=a;mtype=m+m][onshow.other_prms;noerr]">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        </a>
+      </li>
       <li>
         <a href="[onshow..script_name]?pageNum=[nv.last;endpoint;magnet=a;mtype=m+m][onshow.other_prms;noerr]" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
+          <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
         </a>
       </li>
     </ul>
