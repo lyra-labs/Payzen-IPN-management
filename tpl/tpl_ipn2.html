@@ -54,6 +54,7 @@
         <td><strong>Shop_Name</strong></td>
         <td><strong>Source</strong></td>
         <td><strong>Detail</strong></td>
+        <td><strong>CreationDate</strong></td>
         <td>
           <input type="text" name="uuid" value="[onshow.uuid;noerr;]" placeholder="uuid" class="form-control input-sm">
         </td>
@@ -61,7 +62,6 @@
         <td>
           <input type="text" name="orderId" value="[onshow.orderId;noerr;]" placeholder="OrderId" class="form-control input-sm">
         </td>
-        <td><strong>CreationDate</strong></td>
         <td><strong>Type</strong></td>
         <td><strong>Status</strong></td>
         <td><strong>Amount</strong></td>
@@ -93,13 +93,13 @@
         <td>
            <button type="button" class="btn-sm btn-primary" data-container="body" data-toggle="popover" data-placement="right" data-content="[list.full]" data-original-title="All parameters" title="All parameters"  data-html="true">Details</button> 
         </td>
+        <td>[list.vads_effective_creation_date;frm='yyyy-mm-dd hh:mm:ss']</td>
         <td><small>
            [list.vads_trans_uuid]<br/>
            [list.vads_trans_id]</small>
         </td>
         <td>[list.vads_ctx_mode]</td>
         <td>[list.vads_order_id]</td>
-        <td>[list.vads_effective_creation_date;frm='mm-dd-yy hh:mm:ss']</td>
         <td>[list.vads_operation_type]</td>
         <td>[list.vads_trans_status]</td>
         <td align="right">[list.vads_effective_amount]</td>
@@ -128,7 +128,7 @@
 </div> <!-- /bs-example -->
 
 <nav>
-  <ul class="pager">
+  <ul class="pagination">
     <li>
       <a href="[onshow..script_name]?pageNum=[nv.first;endpoint;magnet=a;mtype=m+m][onshow.other_prms;noerr]" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
