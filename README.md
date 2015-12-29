@@ -12,17 +12,17 @@ The code :
 * InitScript.php, used to create the sqlite database.
 
 
-.../classes/  the classes used for IPN manipulation and TinyButStrong ones.
-.../database/ the sqlite database.
-.../config/   the key.ini configuration file
-.../tpl/      TinyButStrong templates.
+⋅⋅⋅/classes/  the classes used for IPN manipulation and TinyButStrong ones.⋅⋅
+⋅⋅⋅/database/ the sqlite database.⋅⋅
+⋅⋅⋅/config/   the key.ini configuration file.⋅⋅
+⋅⋅⋅/tpl/      TinyButStrong templates.⋅⋅
 
 
 ## What to do first 
 1. Install the package, ipn.php must be reacheable from internet. 
 2. Call InitScript.php to create the ipn database.
 3. On your Payzen back-office configure IPN to call ipn.php script.
-4. configure the key.ini file with your site_id (shop id) TEST and/or PRODUCTION keys,
+4. configure the key.ini file with your site_id (shop id) TEST and/or PRODUCTION keys,⋅⋅
    this step isn't mandatory, but the signature calculation will fail without the correct keys.
 
 
