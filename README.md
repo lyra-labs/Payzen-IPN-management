@@ -11,10 +11,11 @@ The code :
 * list.php, displays the IPN from the database using TinyButStrong template engine and Bootstrap.
 * InitScript.php, used to create the sqlite database.
 
-- /classes/  the classes used for IPN manipulation and TinyButStrong ones.
-- /database/ the sqlite database.
-- /config/   the key.ini configuration file
-- /tpl/      TinyButStrong templates.
+
+.../classes/  the classes used for IPN manipulation and TinyButStrong ones.
+.../database/ the sqlite database.
+.../config/   the key.ini configuration file
+.../tpl/      TinyButStrong templates.
 
 
 ## What to do first 
