@@ -30,26 +30,32 @@ $pageSize = 16;
 
 // Build condition 
 //
-$where='';
+$where = '';
+$other_prms = '';
 if (!empty($siteId)) {
   $where .= " vads_site_id = '$siteId'";
+  $other_prms .= "&siteId=$siteId";
 }
 if (!empty($orderId)) {
   if (!empty($where)) $where .= ' AND ';
   $where .= " vads_order_id LIKE '$orderId' ";
+  $other_prms .= "&orderId=$orderId";
 }
 if (!empty($uuid)) {
   if (!empty($where)) $where .= ' AND ';
   if (strlen($uuid) == 6) $where .= "vads_trans_id = '$uuid' ";
    else $where .= "vads_trans_uuid = '$uuid' ";
+  $other_prms .= "&uuid=$uuid";
 }
 if (!empty($email)) {
   if (!empty($where)) $where .= ' AND ';
   $where .= " vads_cust_email like '$email'";
+  $other_prms .= "&email=$email";
 }
 if (!empty($cards)) {
   if (!empty($where)) $where .= ' AND ';
   $where .= " vads_card_brand = '$cards'";
+  $other_prms .= "&cards=$cards";
 }
 if (!empty($where)) $where = " WHERE $where ";
 
