@@ -1,4 +1,4 @@
-# PayZen IPN - Instant Payment Notification managment in PHP
+# PayZen IPN - Instant Payment Notification management in PHP
 
 ## Introduction
 The code presented here is a PHP & sqlite demonstration implementation of the *PayZen* Instant Payment Notification.
