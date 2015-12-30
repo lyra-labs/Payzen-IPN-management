@@ -1,6 +1,13 @@
 <?PHP
 
 /////////////////////////////////////////////
+// Classes used for 
+//
+//  - Constant names 
+//  - Tables creations
+//  - TinyButStrong functions 
+//
+/////////////////////////////////////////////
 
 
 // Variables & Constants
@@ -81,10 +88,13 @@ function create_ipn_table() {
 }
 
 // TBS
-//
+//  TinyButStrong function for eMail obfuscation
+//  use :
+//   vads_cust_email;onformat=zemail;domaine=exemple.com
+//   will replace email domain name with value defined in 'domain' 
+// 
 function zemail($FieldName, &$CurrVal, &$CurrPrm) {
   if (!empty($CurrVal)) $CurrVal= substr($CurrVal, 0, strpos($CurrVal, '@')) . '@' . $CurrPrm['domaine'];
 }
-
 
 

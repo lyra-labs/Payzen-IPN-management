@@ -144,7 +144,10 @@
 
         </td>
         <td>[list.vads_card_number]</td>
-        <td>[list.vads_cust_email;onformat=zemail;domaine=exemple.com]</td>
+        <td>
+          <!-- [list.vads_cust_email;onformat=zemail;domaine=exemple.com]   if email obfuscation needed use zemail TBS feature  -->
+          [list.vads_cust_email]
+        </td>
       </tr>
       <tr>
          <td colspan="16">[list;block=tr;nodata]There is no data.</td>
