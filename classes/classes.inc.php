@@ -13,7 +13,9 @@
 // Variables & Constants
 //
 
+define("OBFUSCATION","YES"); 
 define("DATABASE_FILE", "./database/payzen.sqlite");
+
 define("PROJECT_NAME", "IPN");
 define("PROJECT_LICENSE", "The MIT License (MIT)");
 
@@ -93,8 +95,23 @@ function create_ipn_table() {
 //   vads_cust_email;onformat=zemail;domaine=exemple.com
 //   will replace email domain name with value defined in 'domain' 
 // 
-function zemail($FieldName, &$CurrVal, &$CurrPrm) {
-  if (!empty($CurrVal)) $CurrVal= substr($CurrVal, 0, strpos($CurrVal, '@')) . '@' . $CurrPrm['domaine'];
+function obfmail($FieldName, &$CurrVal, &$CurrPrm) {
+  if (!empty($CurrVal) && OBFUSCATION == 'YES') $CurrVal= substr($CurrVal, 0, strpos($CurrVal, '@')) . '@' . $CurrPrm['domaine'];
 }
+
+
+function obfdata($FieldName, &$CurrVal, &$CurrPrm) {
+  if (!empty($CurrVal)) {
+    $CurrVal= str_replace('    ','&nbsp;&nbsp;',$CurrVal);
+    if (OBFUSCATION == 'YES') $CurrVal= preg_replace('/(vads_cust_address|vads_cust_email|vads_cust_first_name|vads_cust_last_name|vads_cust_name|vads_ship_to_first_name|vads_ship_to_last_name|vads_ship_to_name|vads_ship_to_phone_num|vads_ship_to_street2?|vads_cust_phone|vads_cust_cell_phone)(":)(.+)/ ','$1$2 <i>redacted</i>, ',$CurrVal);
+  }
+}
+
+function indent($FieldName, &$CurrVal, &$CurrPrm) {
+  if (!empty($CurrVal)) {
+    $CurrVal= str_replace('    ','&nbsp;&nbsp;',$CurrVal);
+  }
+}
+
 
 

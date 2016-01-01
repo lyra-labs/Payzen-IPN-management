@@ -33,7 +33,6 @@ Clic on the "Details" button to see all parameters.
 When "Mutli" button is displayed you can see the details of each payment. 
 
 ## Notes
-* You can change the sqlite database name and location in **classes/classes.inc.php**  
-   by changing the constant **DATABASE_FILE** 
-* you can apply obfuscation to email addresses using **zemail** function  
-  see **classes/classes.inc.php** or search **zemail** in **tpl/tpl_ipn.html**
+Parameters in **classes/classes.inc.php**
+* you can remove obfuscation to email & customers details setting **OBFUSCATION** to **NO**  
+* You can change the sqlite database name and location in **DATABASE_FILE** 

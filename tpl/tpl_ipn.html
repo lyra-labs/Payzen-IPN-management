@@ -120,7 +120,7 @@
         <td>[list.vads_shop_name;block=tr]</td>
         <td>[list.vads_url_check_src]</td>
         <td>
-           <button type="button" class="btn-sm btn-primary" data-container="body" data-toggle="popover" data-placement="right" data-content="[list.full]" data-original-title="All parameters" title="All parameters"  data-html="true">Details</button> 
+           <button type="button" class="btn-sm btn-primary" data-container="body" data-toggle="popover" data-placement="right" data-content="[list.full;onformat=obfdata]" data-original-title="All parameters" title="All parameters"  data-html="true">Details</button> 
         </td>
         <td>[list.vads_effective_creation_date;frm='yyyy-mm-dd hh:mm:ss']</td>
         <td><small>
@@ -136,7 +136,7 @@
         <td align="center">[list.vads_auth_mode]</td>
         <td>
          <div>
-          <a href="#" tabindex="20[list.#]" class="btn-sm btn-primary" data-trigger="focus" data-placement="left" data-toggle="popover" data-html="true" title="Cads details" data-content="[list.vads_payment_seq]">[list.vads_card_brand;magnet=div;ope=mok:MULTI][list.vads_card_brand]</a>
+          <a href="#" tabindex="20[list.#]" class="btn-sm btn-primary" data-trigger="focus" data-placement="left" data-toggle="popover" data-html="true" title="Cads details" data-content="[list.vads_payment_seq;onformat=indent]">[list.vads_card_brand;magnet=div;ope=mok:MULTI][list.vads_card_brand]</a>
          </div>
          <div>
           [list.vads_card_brand;magnet=div;ope=mko:MULTI][list.vads_card_brand]
@@ -145,8 +145,7 @@
         </td>
         <td>[list.vads_card_number]</td>
         <td>
-          <!-- [list.vads_cust_email;onformat=zemail;domaine=exemple.com]   if email obfuscation needed use zemail TBS feature  -->
-          [list.vads_cust_email]
+          [list.vads_cust_email;onformat=obfmail;domaine=exemple.com]  
         </td>
       </tr>
       <tr>
