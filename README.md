@@ -37,8 +37,8 @@ Parameters in **classes/classes.inc.php**
 * you can remove obfuscation to email & customers details setting **OBFUSCATION** to **NO**  
 * You can change the sqlite database name and location in **DATABASE_FILE** 
 
-if a Payzen parameter **vads_ext_info_IpnError** is received by **ipn.php** 
-(this parameter name can be modified)
+if a Payzen parameter **vads_ext_info_IpnError** is received by **ipn.php**   
+(parameter name can be modified - not reserved or defined in Payzen platform)
 * if value is **TimeOut** IPN demonstrator will simulate one
-* if value is a valid HTTP status code demonstrator will return this status  
+* if value is a valid HTTP status code demonstrator will return this status to Payzen 
 
