@@ -76,7 +76,7 @@
      <thead>
       <tr>
        <form role="search" class="form-inline" method="get">
-        <td><strong>Sign</strong></td>
+        <td><strong>Id</strong><br/><small>Sign</small></td>
         <td>
           <input type="text" name="siteId" value="[onshow.siteId;noerr;]" placeholder="Site_Id" class="form-control input-sm">
         </td>
@@ -93,8 +93,7 @@
         </td>
         <td><strong>Type</strong></td>
         <td><strong>Status</strong></td>
-        <td><strong>Amount</strong></td>
-        <td><strong>Currency</strong></td>
+        <td><strong>Amount</strong><br/><small>Cur/Amnt</small></td>
         <td><strong>Mode</strong></td>
         <td>
           <select name="cards" class="form-control input-sm">
@@ -115,7 +114,10 @@
      </thead>
      <tbody>
       <tr>
-        <td>[list.checked]</td>
+        <td>
+          [list.id]<br>
+          <small>[list.checked]</small> 
+        </td>
         <td>[list.vads_site_id]</td>
         <td>[list.vads_shop_name;block=tr]</td>
         <td>[list.vads_url_check_src]</td>
@@ -134,8 +136,10 @@
         <td>[list.vads_order_id]</td>
         <td>[list.vads_operation_type]</td>
         <td>[list.vads_trans_status]</td>
-        <td align="right">[list.vads_effective_amount]</td>
-        <td align="right">[list.vads_currency]</td>
+        <td align="right">
+          [list.vads_effective_amount;onformat=currIso;currency=[list.vads_currency]]<br/>
+          <small>[list.vads_currency]&nbsp;[list.vads_effective_amount]</small>
+        </td>
         <td align="center">[list.vads_auth_mode]</td>
         <td>
          <div>

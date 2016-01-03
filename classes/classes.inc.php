@@ -113,6 +113,13 @@ function indent($FieldName, &$CurrVal, &$CurrPrm) {
   }
 }
 
+function currIso($FieldName, &$CurrVal, &$CurrPrm) {
+  if (!empty($CurrVal)) {
+    if ($CurrPrm['currency']=='978') $CurrVal = "€ ".($CurrVal/100);
+      else $CurrVal = ($CurrVal/100)." ".$CurrPrm['currency'];
+  }
+}
+
 
 function header_status($statusCode) {
     static $status_codes = null;
