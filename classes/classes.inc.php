@@ -115,8 +115,11 @@ function indent($FieldName, &$CurrVal, &$CurrPrm) {
 
 function currIso($FieldName, &$CurrVal, &$CurrPrm) {
   if (!empty($CurrVal)) {
-    if ($CurrPrm['currency']=='978') $CurrVal = "€ ".($CurrVal/100);
-      else $CurrVal = ($CurrVal/100)." ".$CurrPrm['currency'];
+    if     ($CurrPrm['currency']=='978') $CurrVal = "€ ".($CurrVal/100);
+    elseif ($CurrPrm['currency']=='826') $CurrVal = "£ ".($CurrVal/100);
+    elseif ($CurrPrm['currency']=='840') $CurrVal = "$ ".($CurrVal/100);
+    elseif ($CurrPrm['currency']=='953') $CurrVal = "XPF ".$CurrVal;
+      else $CurrVal = ($CurrVal/100);
   }
 }
 
