@@ -83,18 +83,17 @@
         <td><strong>Shop_Name</strong></td>
         <td><strong>Source</strong></td>
         <td><strong>Detail</strong></td>
+        <td>
+          <input type="text" name="orderId" value="[onshow.orderId;noerr;]" placeholder="OrderId" class="form-control input-sm">
+        </td>
         <td><strong>Creation_Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><br/><small>TimeStamp</small></td>
         <td>
           <input type="text" name="uuid" value="[onshow.uuid;noerr;]" placeholder="uuid" class="form-control input-sm">
         </td>
-        <td><strong>Mode</strong></td>
-        <td>
-          <input type="text" name="orderId" value="[onshow.orderId;noerr;]" placeholder="OrderId" class="form-control input-sm">
-        </td>
-        <td><strong>Type</strong></td>
-        <td><strong>Status</strong></td>
         <td><strong>Amount</strong><br/><small>Cur/Amnt</small></td>
+        <td><strong>Status</strong></td>
         <td><strong>Mode</strong></td>
+        <td><strong>Type</strong></td>
         <td>
           <select name="cards" class="form-control input-sm">
             <option value="">Brand</option>           
@@ -103,6 +102,7 @@
           </select>
         </td>
         <td><strong>Card</strong></td>
+        <td><strong>Mode</strong></td>
         <td>
           <input type="text" name="email" value="[onshow.email;noerr;]" placeholder="eMail" class="form-control input-sm">
         </td>
@@ -124,6 +124,7 @@
         <td>
            <button type="button" class="btn-sm btn-primary" data-container="body" data-toggle="popover" data-placement="right" data-content="[list.full;onformat=obfdata]" data-original-title="All parameters" title="All parameters"  data-html="true">Details</button> 
         </td>
+        <td>[list.vads_order_id]</td>
         <td>
           [list.vads_effective_creation_date;frm='yyyy-mm-dd hh:mm:ss']<br/>
           <small>[list.ts]</small>
@@ -132,15 +133,13 @@
            [list.vads_trans_uuid]<br/>
            [list.vads_trans_id;frm=000000]</small>
         </td>
-        <td>[list.vads_ctx_mode]</td>
-        <td>[list.vads_order_id]</td>
-        <td>[list.vads_operation_type]</td>
-        <td>[list.vads_trans_status]</td>
         <td align="right">
           [list.vads_effective_amount;onformat=currIso;currency=[list.vads_currency]]<br/>
           <small>[list.vads_currency]&nbsp;[list.vads_effective_amount]</small>
         </td>
+        <td>[list.vads_trans_status]</td>
         <td align="center">[list.vads_auth_mode]</td>
+        <td>[list.vads_operation_type]</td>
         <td>
          <div>
           <a href="#" tabindex="20[list.#]" class="btn-sm btn-primary" data-trigger="focus" data-placement="left" data-toggle="popover" data-html="true" title="Cads details" data-content="[list.vads_payment_seq;onformat=indent]">[list.vads_card_brand;magnet=div;ope=mok:MULTI][list.vads_card_brand]</a>
@@ -151,6 +150,7 @@
 
         </td>
         <td>[list.vads_card_number]</td>
+        <td>[list.vads_ctx_mode]</td>
         <td>
           [list.vads_cust_email;onformat=obfmail;domaine=exemple.com]  
         </td>
