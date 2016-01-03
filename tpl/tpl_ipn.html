@@ -83,7 +83,7 @@
         <td><strong>Shop_Name</strong></td>
         <td><strong>Source</strong></td>
         <td><strong>Detail</strong></td>
-        <td><strong>CreationDate</strong></td>
+        <td><strong>Creation_Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><br/><small>TimeStamp</small></td>
         <td>
           <input type="text" name="uuid" value="[onshow.uuid;noerr;]" placeholder="uuid" class="form-control input-sm">
         </td>
@@ -122,10 +122,13 @@
         <td>
            <button type="button" class="btn-sm btn-primary" data-container="body" data-toggle="popover" data-placement="right" data-content="[list.full;onformat=obfdata]" data-original-title="All parameters" title="All parameters"  data-html="true">Details</button> 
         </td>
-        <td>[list.vads_effective_creation_date;frm='yyyy-mm-dd hh:mm:ss']</td>
+        <td>
+          [list.vads_effective_creation_date;frm='yyyy-mm-dd hh:mm:ss']<br/>
+          <small>[list.ts]</small>
+        </td>
         <td><small>
            [list.vads_trans_uuid]<br/>
-           [list.vads_trans_id]</small>
+           [list.vads_trans_id;frm=000000]</small>
         </td>
         <td>[list.vads_ctx_mode]</td>
         <td>[list.vads_order_id]</td>
