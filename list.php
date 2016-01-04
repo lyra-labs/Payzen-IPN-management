@@ -33,35 +33,36 @@ $pageSize = 16;
 $where = '';
 $other_prms = '';
 if (!empty($siteId)) {
-  $where .= " vads_site_id = '$siteId'";
+  $where .= " vads_site_id = '".SQLite3::escapeString($siteId)."'";
   $other_prms .= "&siteId=$siteId";
 }
 if (!empty($orderId)) {
   if (!empty($where)) $where .= ' AND ';
-  $where .= " vads_order_id LIKE '$orderId' ";
+  $where .= " vads_order_id LIKE '".SQLite3::escapeString($orderId)."' ";
   $other_prms .= "&orderId=$orderId";
 }
 if (!empty($uuid)) {
   if (!empty($where)) $where .= ' AND ';
-  if (strlen($uuid) == 6) $where .= "vads_trans_id = '$uuid' ";
-   else $where .= "vads_trans_uuid = '$uuid' ";
+  if (strlen($uuid) == 6) $where .= "vads_trans_id = '".SQLite3::escapeString($uuid)."' ";
+   else $where .= "vads_trans_uuid = '".SQLite3::escapeString($uuid)."' ";
   $other_prms .= "&uuid=$uuid";
 }
 if (!empty($email)) {
   if (!empty($where)) $where .= ' AND ';
-  $where .= " vads_cust_email like '$email'";
+  $where .= " vads_cust_email like '".SQLite3::escapeString($email)."'";
   $other_prms .= "&email=$email";
 }
 if (!empty($cards)) {
   if (!empty($where)) $where .= ' AND ';
-  $where .= " vads_card_brand = '$cards'";
+  $where .= " vads_card_brand = '".SQLite3::escapeString($cards)."'";
   $other_prms .= "&cards=$cards";
 }
 if (!empty($where)) $where = " WHERE $where ";
 
-// prepare seclect
+// prepare select
 //
 
+// Build card list from existing IPN records 
 $resc = $db->query("select DISTINCT vads_card_brand FROM ipn WHERE vads_card_brand <> ''ORDER BY vads_card_brand");
 
 while ($rescards = $resc->fetchArray()) {
