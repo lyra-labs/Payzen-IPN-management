@@ -102,7 +102,6 @@
           </select>
         </td>
         <td><strong>Card</strong></td>
-        <td><strong>Mode</strong></td>
         <td>
           <input type="text" name="email" value="[onshow.email;noerr;]" placeholder="eMail" class="form-control input-sm">
         </td>
@@ -118,7 +117,10 @@
           [list.id]<br>
           <small>[list.checked]</small> 
         </td>
-        <td>[list.vads_site_id]</td>
+        <td>
+          [list.vads_site_id]
+          <small>[list.vads_ctx_mode]</small> 
+        </td>
         <td>[list.vads_shop_name;block=tr]</td>
         <td>[list.vads_url_check_src]</td>
         <td>
@@ -150,7 +152,6 @@
 
         </td>
         <td>[list.vads_card_number]</td>
-        <td>[list.vads_ctx_mode]</td>
         <td>
           [list.vads_cust_email;onformat=obfmail;domaine=exemple.com]  
         </td>
