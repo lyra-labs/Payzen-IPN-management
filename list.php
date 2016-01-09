@@ -33,7 +33,8 @@ $pageSize = 16;
 $where = '';
 $other_prms = '';
 if (!empty($siteId)) {
-  $where .= " vads_site_id = '".SQLite3::escapeString($siteId)."'";
+  if (strlen($siteId) != '8') $where .= "vads_contract_used = '".SQLite3::escapeString($siteId)."'"; 
+   else $where .= " (vads_site_id = '".SQLite3::escapeString($siteId)."' OR vads_contract_used = '".SQLite3::escapeString($siteId)."')";
   $other_prms .= "&siteId=$siteId";
 }
 if (!empty($orderId)) {
@@ -80,11 +81,22 @@ $results = $db->query("SELECT * FROM ipn $where ORDER by ts DESC");
 // Prepare array for TBS template
 //
 while ($res = $results->fetchArray()) {
-  $res['vads_payment_seq'] = json_encode(json_decode($res['vads_payment_seq']), JSON_PRETTY_PRINT + JSON_UNESCAPED_SLASHES + JSON_UNESCAPED_UNICODE);
-  #$res['full'] = json_encode(json_decode($res['full']), JSON_PRETTY_PRINT + JSON_UNESCAPED_SLASHES + JSON_UNESCAPED_UNICODE);
+
+  // prepare/sanitize the data of multi-payments  
+  $wrkmulti = json_decode($res['vads_payment_seq']);
+  $res['vads_payment_seq'] = json_encode($wrkmulti, JSON_PRETTY_PRINT + JSON_UNESCAPED_SLASHES + JSON_UNESCAPED_UNICODE);
+
+  // prepare/sanitize the data set for a better detail display
   $wrk = json_decode($res['full'],true);
+
+  // replace the multi payment details by a reference to the MULTI button
   if ($wrk['vads_payment_seq'] != '' ) $wrk['vads_payment_seq'] = "<code>=>  MULTI</code>";
   $res['full'] = json_encode($wrk, JSON_PRETTY_PRINT + JSON_UNESCAPED_SLASHES + JSON_UNESCAPED_UNICODE);
+ 
+  // populate extra data details from the json info
+  $res['vads_sequence_number'] = $wrk['vads_sequence_number'];
+ 
+  // populate data array
   $data[] = $res;
 }
 

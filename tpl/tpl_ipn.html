@@ -78,13 +78,13 @@
        <form role="search" class="form-inline" method="get">
         <td><strong>Id</strong><br/><small>Sign</small></td>
         <td>
-          <input type="text" name="siteId" value="[onshow.siteId;noerr;]" placeholder="Site_Id" class="form-control input-sm">
+          <input type="text" name="siteId" value="[onshow.siteId;noerr;]" placeholder="Site_Id" class="form-control input-sm" size="12">
         </td>
         <td><strong>Shop_Name</strong></td>
         <td><strong>Source</strong></td>
         <td><strong>Detail</strong></td>
         <td>
-          <input type="text" name="orderId" value="[onshow.orderId;noerr;]" placeholder="OrderId" class="form-control input-sm">
+          <input type="text" name="orderId" value="[onshow.orderId;noerr;]" placeholder="OrderId" class="form-control input-sm" size="25">
         </td>
         <td><strong>Creation_Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><br/><small>TimeStamp</small></td>
         <td>
@@ -119,10 +119,13 @@
         </td>
         <td>
           [list.vads_site_id]<br/>
-          <small>[list.vads_ctx_mode]</small> 
+          <small>[list.vads_contract_used]</small>
         </td>
         <td>[list.vads_shop_name;block=tr]</td>
-        <td>[list.vads_url_check_src]</td>
+        <td>
+          [list.vads_url_check_src]<br/>
+          <small>[list.vads_ctx_mode]</small> 
+        </td>
         <td>
            <button type="button" class="btn-sm btn-primary" data-container="body" data-toggle="popover" data-placement="right" data-content="[list.full;onformat=obfdata]" data-original-title="All parameters" title="All parameters"  data-html="true">Details</button> 
         </td>
@@ -133,7 +136,7 @@
         </td>
         <td><small>
            [list.vads_trans_uuid]<br/>
-           [list.vads_trans_id;frm=000000]</small>
+           [list.vads_trans_id;frm=000000]/#[list.vads_sequence_number;frm=00]</small>
         </td>
         <td align="right">
           [list.vads_effective_amount;onformat=currIso;currency=[list.vads_currency]]<br/>
@@ -144,7 +147,7 @@
         <td>[list.vads_operation_type]</td>
         <td>
          <div>
-          <a href="#" tabindex="20[list.#]" class="btn-sm btn-primary" data-trigger="focus" data-placement="left" data-toggle="popover" data-html="true" title="Cads details" data-content="[list.vads_payment_seq;onformat=indent]">[list.vads_card_brand;magnet=div;ope=mok:MULTI][list.vads_card_brand]</a>
+           <button type="button" class="btn-xs btn-primary" data-container="body" data-toggle="popover" data-placement="left" data-content="[list.vads_payment_seq;onformat=indent]" data-original-title="Cads details" title="Cads details"  data-html="true">[list.vads_card_brand;magnet=div;ope=mok:MULTI][list.vads_card_brand]</button> 
          </div>
          <div>
           [list.vads_card_brand;magnet=div;ope=mko:MULTI][list.vads_card_brand]
