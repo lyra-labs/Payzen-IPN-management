@@ -78,13 +78,13 @@
        <form role="search" class="form-inline" method="get">
         <td><strong>Id</strong><br/><small>Sign</small></td>
         <td>
-          <input type="text" name="siteId" value="[onshow.siteId;noerr;]" placeholder="Site/Cntr" class="form-control input-sm" size="12">
+          <input type="text" name="siteId" value="[onshow.siteId;noerr;]" placeholder="Site/Cntrct" class="form-control input-sm" style="min-width:80px;">
         </td>
         <td><strong>Shop_Name</strong></td>
         <td><strong>Source</strong></td>
         <td><strong>Detail</strong></td>
         <td>
-          <input type="text" name="orderId" value="[onshow.orderId;noerr;]" placeholder="OrderId or uuid" class="form-control input-sm" size="25">
+        <input type="text" name="orderId" value="[onshow.orderId;noerr;]" placeholder="OrderId or uuid" class="form-control input-sm">
         </td>
         <td><strong>Creation_Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><br/><small>TimeStamp</small></td>
         <td>
@@ -95,7 +95,7 @@
         <td><strong>Mode</strong></td>
         <td><strong>Type</strong></td>
         <td>
-          <select name="cards" class="form-control input-sm">
+          <select name="cards" class="form-control input-sm" style="min-width:130px;">
             <option value="">Brand</option>           
             <option value="[cardlst.vads_card_brand]">[cardlst.vads_card_brand;block=option]</option>
             <option>[onshow.cards;ope=html;select;noerr]</option> 
