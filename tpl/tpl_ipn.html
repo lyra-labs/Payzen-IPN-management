@@ -27,6 +27,11 @@
   <style type="text/css">
     .bs-example{  margin: 20px; }
     .popover{ max-width:600px; }
+    #siteid { min-width:80px; }
+    #orderid { min-width:140px; }
+    #uuid { min-width:140px; }
+    #brand { min-width:140px; }
+    #email { min-width:140px; }
   </style>
 </head>
 
@@ -78,24 +83,24 @@
        <form role="search" class="form-inline" method="get">
         <td><strong>Id</strong><br/><small>Sign</small></td>
         <td>
-          <input type="text" name="siteId" value="[onshow.siteId;noerr;]" placeholder="Site/Cntrct" class="form-control input-sm" style="min-width:80px;">
+          <input type="text" name="siteId" value="[onshow.siteId;noerr;]" placeholder="Site/Cntrct" class="form-control input-sm" id="siteid">
         </td>
         <td><strong>Shop_Name</strong></td>
         <td><strong>Source</strong></td>
         <td><strong>Detail</strong></td>
         <td>
-        <input type="text" name="orderId" value="[onshow.orderId;noerr;]" placeholder="OrderId or uuid" class="form-control input-sm">
+        <input type="text" name="orderId" value="[onshow.orderId;noerr;]" placeholder="OrderId" class="form-control input-sm" id="orderid">
         </td>
         <td><strong>Creation_Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><br/><small>TimeStamp</small></td>
         <td>
-          <input type="text" name="uuid" value="[onshow.uuid;noerr;]" placeholder="uuid" class="form-control input-sm">
+          <input type="text" name="uuid" value="[onshow.uuid;noerr;]" placeholder="uuid or transaction" class="form-control input-sm" id="uuid">
         </td>
         <td align="right"><strong>&nbsp;&nbsp;&nbsp;Amount</strong><br/><small>Cur/Amnt</small></td>
         <td><strong>Status</strong></td>
         <td><strong>Mode</strong></td>
         <td><strong>Type</strong></td>
         <td>
-          <select name="cards" class="form-control input-sm" style="min-width:130px;">
+          <select name="cards" class="form-control input-sm" id="brand">
             <option value="">Brand</option>           
             <option value="[cardlst.vads_card_brand]">[cardlst.vads_card_brand;block=option]</option>
             <option>[onshow.cards;ope=html;select;noerr]</option> 
@@ -103,7 +108,7 @@
         </td>
         <td><strong>Card</strong></td>
         <td>
-          <input type="text" name="email" value="[onshow.email;noerr;]" placeholder="eMail" class="form-control input-sm">
+          <input type="text" name="email" value="[onshow.email;noerr;]" placeholder="eMail" class="form-control input-sm" id="email">
         </td>
         <td>
           <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
