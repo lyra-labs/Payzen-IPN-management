@@ -33,18 +33,21 @@ $pageSize = 16;
 $where = '';
 $other_prms = '';
 if (!empty($siteId)) {
-  if (strlen($siteId) != '8') $where .= "vads_contract_used = '".SQLite3::escapeString($siteId)."'"; 
+  if (preg_match('/prod/i',$siteId)) $where .= "vads_ctx_mode = 'PRODUCTION'";
+   elseif (strlen($siteId) != '8') $where .= "vads_contract_used = '".SQLite3::escapeString($siteId)."'"; 
    else $where .= " (vads_site_id = '".SQLite3::escapeString($siteId)."' OR vads_contract_used = '".SQLite3::escapeString($siteId)."')";
   $other_prms .= "&siteId=$siteId";
 }
 if (!empty($orderId)) {
   if (!empty($where)) $where .= ' AND ';
-  $where .= " vads_order_id LIKE '".SQLite3::escapeString($orderId)."' ";
+  if ($orderId == 'null') $where .= " vads_order_id ='' ";
+   else $where .= " vads_order_id LIKE '".SQLite3::escapeString($orderId)."' ";
   $other_prms .= "&orderId=$orderId";
 }
 if (!empty($uuid)) {
   if (!empty($where)) $where .= ' AND ';
-  if (strlen($uuid) == 6) $where .= "vads_trans_id = '".SQLite3::escapeString($uuid)."' ";
+  if ($uuid == 'null') $where .= "vads_trans_uuid = '' ";
+   elseif (strlen($uuid) == 6) $where .= "vads_trans_id = '".SQLite3::escapeString($uuid)."' ";
    else $where .= "vads_trans_uuid = '".SQLite3::escapeString($uuid)."' ";
   $other_prms .= "&uuid=$uuid";
 }
